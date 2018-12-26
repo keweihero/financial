@@ -2,6 +2,7 @@ package com.powderblue.manager.service;
 
 import com.powderblue.entity.Product;
 import com.powderblue.entity.enums.ProductStatus;
+import com.powderblue.manager.error.ErrorEnum;
 import com.powderblue.manager.repositories.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +75,7 @@ public class ProductService {
      * @param product
      */
     private void checkProduct(Product product) {
-        Assert.notNull(product.getId(), "编号不可为空");
+        Assert.notNull(product.getId(), ErrorEnum.ID_NOT_NULL.getCode());
 
         Assert.isTrue(BigDecimal.ZERO.compareTo(product.getRewardRate()) < 0 &&
         BigDecimal.valueOf(30).compareTo(product.getRewardRate()) >= 0, "收益率范围错误");

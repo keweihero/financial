@@ -1,4 +1,7 @@
 spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss.SSS
   datasource:
     url: jdbc:mysql://120.78.197.250:3306/manager?user=manager&password=PYsrCzDbnFwdPLAh&useUnicode=true&characterEncoding=utf-8
   jpa:
