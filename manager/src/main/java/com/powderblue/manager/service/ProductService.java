@@ -75,7 +75,7 @@ public class ProductService {
      * @param product
      */
     private void checkProduct(Product product) {
-        Assert.notNull(product.getId(), ErrorEnum.ID_NOT_NULL.getCode());
+        Assert.notNull(product.getId(), ErrorEnum.ID_NOT_NULL.getMessage());
 
         Assert.isTrue(BigDecimal.ZERO.compareTo(product.getRewardRate()) < 0 &&
         BigDecimal.valueOf(30).compareTo(product.getRewardRate()) >= 0, "收益率范围错误");

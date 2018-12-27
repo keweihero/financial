@@ -3,7 +3,6 @@ package com.powderblue.manager.error;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -14,7 +13,7 @@ import java.util.Map;
  * @author powderblue
  * 统一错误处理
  */
-@ControllerAdvice(basePackages = {"com.powderblue.manager.controller"})
+//@ControllerAdvice(basePackages = {"com.powderblue.manager.controller"})
 public class ErrorControllerAdvice {
 
     @ExceptionHandler(Exception.class)
