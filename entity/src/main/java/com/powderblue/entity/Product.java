@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
+ * @author lkw
  * 产品
  */
 @Entity
@@ -21,13 +22,13 @@ public class Product implements Serializable{
      */
 //    @ApiModelProperty(value = "状态",dataType = "com.powderblue.entity.enums.ProductStatus")
     private String status ;
-    //起投金额
+    /** 起投金额 */
     private BigDecimal thresholdAmount ;
-    //投资步长
+    /** 投资步长 */
     private BigDecimal stepAmount;
-    //锁定期
+    /** 锁定期 */
     private Integer lockTerm;
-    //收益率，因为要与其他数相乘，所以使用BigDecimal
+    /** 收益率，因为要与其他数相乘，所以使用BigDecimal*/
     private BigDecimal rewardRate;
     private String memo;
     private Date createAt;

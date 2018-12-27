@@ -5,13 +5,16 @@ import com.powderblue.entity.enums.ProductStatus;
 import com.powderblue.manager.repositories.ProductRepository;
 import com.powderblue.util.RestUtil;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
@@ -23,14 +26,19 @@ import java.util.List;
 
 /**
  * @author lkw
- * TODO 功能测试
- * TODO 自动化测试
+ * 功能测试
+ * 自动化测试
  * TODO jackson BUG -时间日期格式:待修改
- *
+ *  generate-ddl: true
+ *     hibernate:
+ *       ddl-auto: create-drop
+ * jdbc:h2:mem:manager;DB_CLOSE_ON_EXIT=FALSE
  *  Lambda表达式
+ *  TODO h2内存数据库报错, 无法执行添加
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProductControllerTest {
 
     private static RestTemplate rest = new RestTemplate();
@@ -76,16 +84,15 @@ public class ProductControllerTest {
             public boolean hasError(ClientHttpResponse response) throws IOException {
                 return false;
             }
-
             @Override
             public void handleError(ClientHttpResponse response) throws IOException {
-
             }
         };
         rest.setErrorHandler(errorHandler);
     }
     @Test
-    public void create(){
+//    @Transactional
+    public void a_create(){
         normals.forEach(product -> {
             Product result = RestUtil.postJSON(rest, baseUrl + "/products", product, Product.class);
             Assert.notNull(result.getCreateAt(), "插入失败");
@@ -94,10 +101,38 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void createException(){
+    public void b_createException(){
         exceptions.forEach(product -> {
             Product result = RestUtil.postJSON(rest, baseUrl + "/products", product, Product.class);
         });
     }
+
+    @Test
+    public  void c_findOne(){
+        normals.forEach(x -> {
+            Product result = rest.getForObject(baseUrl + "/products/" + x.getId(), Product.class);
+            Assert.isTrue(result.getId().equals(x.getId()), "查询失败");
+        });
+        exceptions.forEach(x -> {
+            Product result = rest.getForObject(baseUrl + "/products/" + x.getId(), Product.class);
+            Assert.isNull(result, "查询成功");
+        });
+    }
+    @Test
+    @Transactional
+    public void d_transaction(){
+        normals.forEach(x -> {
+            x.setLockTerm(0);
+            productRepository.saveAndFlush(x);
+        });
+    }
+
+    @Test
+    public void z_clean(){
+        productRepository.delete(normals);
+    }
+
+
+// TODO 多条件查询测试
 
 }
