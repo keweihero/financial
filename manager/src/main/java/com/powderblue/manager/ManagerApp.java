@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @SpringBootApplication
 @EntityScan(basePackages = {"com.powderblue.entity"})
 public class ManagerApp {
+
     public static void main(String[] args) {
         SpringApplication.run(ManagerApp.class);
     }
