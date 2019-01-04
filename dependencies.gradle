@@ -6,11 +6,16 @@ ext{
             common : [
                     "org.springframework.boot:spring-boot-starter-web:${versions.springBootVersion}",
                     "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBootVersion}",
+                    "org.springframework.boot:spring-boot-configuration-processor:${versions.springBootVersion}",
                     "org.apache.commons:commons-lang3:3.5"
 
             ],
             mysql :[
                     "mysql:mysql-connector-java:5.1.29"
+            ],
+            swagger: [
+                    "io.springfox:springfox-swagger2:2.7.0",
+                    "io.springfox:springfox-swagger-ui:2.7.0"
             ],
             test :[
                     "org.springframework.boot:spring-boot-starter-test:${versions.springBootVersion}",

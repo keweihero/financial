@@ -2,6 +2,7 @@ package com.powderblue.manager.controller;
 
 import com.powderblue.entity.Product;
 import com.powderblue.manager.service.ProductService;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.List;
 /**
  * @author powderblue
  * 产品
+ * TODO 提供详细的接口说明及状态说明
  */
 @RestController
 @RequestMapping("/products")
@@ -27,6 +29,7 @@ public class ProductController  {
     @Autowired
     private ProductService service;
 
+    @ApiOperation(value = "添加产品", notes = "根据对应的业务规则创建产品")
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Product addProduct(@RequestBody Product product){
         LOG.info("创建产品,参数{}", product);

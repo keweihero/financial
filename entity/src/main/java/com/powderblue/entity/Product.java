@@ -1,5 +1,6 @@
 package com.powderblue.entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class Product implements Serializable{
     /**
      * @see com.powderblue.entity.enums.ProductStatus
      */
-//    @ApiModelProperty(value = "状态",dataType = "com.powderblue.entity.enums.ProductStatus")
+    @ApiModelProperty(value = "状态",dataType = "com.powderblue.entity.enums.ProductStatus")
     private String status ;
     /** 起投金额 */
     private BigDecimal thresholdAmount ;
