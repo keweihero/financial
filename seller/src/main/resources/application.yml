@@ -1,0 +1,7 @@
+server:
+  context-path: /seller
+  port: 8082
+rpc:
+  client:
+    url: http://localhost:8081/manager
+    basePackage: com.powderblue.api

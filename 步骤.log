@@ -1,0 +1,75 @@
+使用技术:Spring boot/jpa/gradle/restful
+
+教程:
+IDEA:   https://www.imooc.com/learn/924
+Maven:  https://www.imooc.com/learn/443
+Gradle: https://www.imooc.com/learn/833
+Spring boot: https://www.imooc.com/learn/933
+Spring Data JPA: https://www.imooc.com/learn/821
+Swagger
+Git:    https://www.imooc.com/learn/208
+
+Entity模块
+1.编写实体类
+2.编写枚举
+3.添加注解
+
+Manager模块
+1.编写spring boot启动类
+2.配置数据库连接
+3.建包,添加entity依赖模块
+4.编写repository产品类
+5.编写服务类
+6.编写控制类
+
+查询产品
+1.编写查询单个产品
+2.分页查询
+
+错误处理
+1.返回时间格式化,修改配置文件
+2.编写自定义错误处理controller
+3.编写错误枚举
+4.编写错误处理相关配置
+5.编写统一错误处理
+
+自动化测试
+1.初始化测试数据,正常数据金和异常数据
+2.编写json转换工具类
+3.编写添加的测试方法
+
+数据库测试
+1.事务回滚
+2.repository执行删除所有操作
+3.内存数据库
+
+swagger-api文档
+1.编写swagger配置类
+2.选择性显示
+3.中文显示
+通过代码生成文档
+通过文档生成代码
+
+销售端
+1.编写API接口
+2.管理端加入jsonrpc
+3.编写销售端业务
+4.简化封装jsonrpc
+5.自动化jsonrpc
+
+
+https://blog.csdn.net/chukun123/article/details/82826067
+简化封装jsonrpc
+1.修改注解 jsonRocService 默认空
+2.AutojsonrpcserviceimplExporter -postprocessBeanFactory
+06:45
+.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar;C:\aspectj1.9\lib\aspectjrt.jar
+
+
+
+
+Warning:<i><b>root project 'Hibernate_Ch01': Web Facets/Artifacts will not be configured properly</b>
+Details: org.gradle.api.artifacts.ResolveException: Could not resolve all dependencies for configuration ':runtime'.
+Caused by: org.gradle.internal.resolve.ModuleVersionNotFoundException: Could not find com.oracle:ojdbc6:11.2.0.4.0.
+Required by:
+    project :</i>

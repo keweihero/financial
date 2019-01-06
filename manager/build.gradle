@@ -2,6 +2,7 @@ dependencies {
     compile project(":swagger")
     compile project(":entity")
     compile project(":util")
+    compile project(":api")
     compile libs.mysql
     compile libs.test
 }

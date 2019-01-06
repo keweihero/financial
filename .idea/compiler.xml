@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="financial_main" target="1.8" />
       <module name="financial_test" target="1.8" />
+      <module name="saller_main" target="1.8" />
+      <module name="saller_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
