@@ -5,3 +5,10 @@ rpc:
   client:
     url: http://localhost:8081/manager
     basePackage: com.powderblue.api
+spring:
+  cache:
+    type: hazelcast
+  activemq:
+    broker-url: tcp://120.78.197.250:61616
+    packages:
+      trust-all: true

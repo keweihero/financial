@@ -6,8 +6,11 @@ ext{
             common : [
                     "org.springframework.boot:spring-boot-starter-web:${versions.springBootVersion}",
                     "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springBootVersion}",
-//                    "org.springframework.boot:spring-boot-configuration-processor:${versions.springBootVersion}",
-                    "org.apache.commons:commons-lang3:3.5"
+                    "org.apache.commons:commons-lang3:3.5",
+                    "com.h2database:h2:1.4.195",
+                    "org.projectlombok:lombok:1.18.4",
+                    "com.intellij:annotations:12.0"
+
 
             ],
             mysql :[
@@ -20,9 +23,15 @@ ext{
             jsonrpc: [
                     "com.imooc.jsonrpc4j:jsonrpc4j:1.5.3"
             ],
+            hazelcast: [
+                    "com.hazelcast:hazelcast:3.8.6",
+                    "com.hazelcast:hazelcast-spring:3.8.6"
+            ],
+            activemq:[
+                    "org.springframework.boot:spring-boot-starter-activemq:${versions.springBootVersion}"
+            ],
             test :[
                     "org.springframework.boot:spring-boot-starter-test:${versions.springBootVersion}",
-                    "com.h2database:h2:1.4.197"
             ]
     ]
 }

@@ -5,4 +5,5 @@ dependencies {
     compile project(":api")
     compile libs.mysql
     compile libs.test
+    compile libs.activemq
 }

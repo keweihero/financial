@@ -1,4 +1,8 @@
 spring:
+  activemq:
+    broker-url: tcp://120.78.197.250:61616
+  jms:
+    pub-sub-domain: true
   jackson:
     time-zone: GMT+8
     date-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
@@ -12,3 +16,7 @@ server:
 swagger:
   groupName: manager
   basePackage: com.powderblue.manager.controller
+activemq:
+  broker-url: tcp://120.78.197.250:61616
+jms:
+  pub-sub-domain: true
